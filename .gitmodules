@@ -1,0 +1,6 @@
+[submodule "SAQR-API"]
+	path = SAQR-API
+	url = https://github.com/lucasmenezesds/SAQR-API
+[submodule "SAQR-FRONT"]
+	path = SAQR-FRONT
+	url = https://github.com/lucasmenezesds/SAQR-FRONT
