@@ -17,10 +17,10 @@ services:
       - saqr-db
 
   saqr-front:
-    #    image: saqr-front
-    build:
-      context: .
-      dockerfile: ./SAQR-FRONT/Dockerfile
+    image: saqr-front
+    #    build:
+    #      context: .
+    #      dockerfile: ./SAQR-FRONT/Dockerfile
     command: npm start
     ports:
       - "80:3000"
