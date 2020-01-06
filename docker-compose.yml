@@ -2,25 +2,31 @@ version: '3'
 services:
   saqr-db:
     image: postgres:9.5.12
+    container_name: saqr-db
+    ports:
+      - "5432:5432"
     volumes:
       - ~/SAQR/SAQR-DB:/var/lib/postgresql/data
 
   saqr-api:
     image: saqr-api
+    container_name: saqr-api
+    links:
+      - "saqr-db:postgres_db"
     #    build:
     #      context: .
     #      dockerfile: ./SAQR-API/Dockerfile
     command: bash start.sh
     ports:
-      - "3030:3030"
+      - "3000:3000"
     depends_on:
       - saqr-db
 
   saqr-front:
     image: saqr-front
+    container_name: saqr-front
     #    build:
     #      context: .
-    #      dockerfile: ./SAQR-FRONT/Dockerfile
     command: npm start
     ports:
       - "80:3000"
